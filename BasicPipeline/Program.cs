@@ -1,4 +1,5 @@
-﻿using BasicPipeline.Framework;
+﻿using System;
+using BasicPipeline.Framework;
 using BasicPipeline.InputOutput.Exercise0;
 
 namespace BasicPipeline
@@ -8,6 +9,7 @@ namespace BasicPipeline
         static void Main(string[] args)
         {
             Ex1();
+            Console.WriteLine("Exiting");
         }
 
         static void Ex1(){
@@ -18,7 +20,9 @@ namespace BasicPipeline
             pipeline.SetNext(new CountOtherFilter());
             pipeline.SetNext(new PrintResultFilter());
 
-            pipeline.Invoke(new StringStatistics("Hello World")).Wait();
+            var task = pipeline.Invoke(new StringStatistics("So mmhanges"));
+            task.Wait();
+            //Thread.Sleep(1000);
         }
     }
 }
