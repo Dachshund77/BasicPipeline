@@ -18,8 +18,7 @@ namespace BasicPipeline.Framework
             {
                 Console.WriteLine($"Executing {this.GetType().Name} in thread {Task.CurrentId}");
                 Execute(input);
-                _next?.Invoke(input);
-                //_next?.Invoke(input).Wait();
+                _next?.Invoke(input).Wait();
             });
         }
 
