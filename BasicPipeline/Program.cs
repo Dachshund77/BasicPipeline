@@ -20,9 +20,8 @@ namespace BasicPipeline
             pipeline.SetNext(new CountOtherFilter());
             pipeline.SetNext(new PrintResultFilter());
 
-            var task = pipeline.Invoke(new StringStatistics("So mmhanges"));
-            task.Wait();
-            //Thread.Sleep(1000);
+            pipeline.Invoke(new StringStatistics("So mmhanges")).Wait();
+           
         }
     }
 }
