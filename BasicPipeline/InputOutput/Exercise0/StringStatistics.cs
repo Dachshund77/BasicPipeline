@@ -1,3 +1,6 @@
+using System.Numerics;
+using BasicPipeline.Framework;
+
 namespace BasicPipeline.InputOutput.Exercise0
 {
     public class StringStatistics
